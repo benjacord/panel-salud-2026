@@ -1,0 +1,600 @@
+{
+  "paciente": {
+    "nombre": "Benjamín Cordero Borda",
+    "edad": 26,
+    "sexo": "masculino",
+    "pais": "Chile",
+    "deporte": "Escalada boulder/deportiva (6 años, 5 días/semana)",
+    "peso": 74.0,
+    "grasaCorporal": 12.4,
+    "musculoEsqueletico": 36.9,
+    "fuerzaDedos": "162% BW (élite)",
+    "ocupacion": "Fundador Imperio Digital (automatización e IA)",
+    "cambiosEntreExamenes": [
+      "Dejó medicación Samexid (metilfenidato)",
+      "Viaje escalada Cochamó (8 días)",
+      "Intensificó entrenamiento"
+    ]
+  },
+  "marcadores": [
+    {
+      "nombre": "Testosterona Total",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 593.95, "unidad": "ng/dL", "refMin": 280, "refMax": 800, "estado": "normal"},
+      "mar2026": {"valor": 658.46, "unidad": "ng/dL", "refMin": 280, "refMax": 800, "estado": "normal"},
+      "tendencia": "mejoro",
+      "delta": "+10.9%",
+      "importancia": "alta",
+      "comentario": "Subió ~65 ng/dL. Posible efecto de dejar metilfenidato y mayor entrenamiento."
+    },
+    {
+      "nombre": "Testosterona Libre",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 27.2, "unidad": "pg/mL", "refMin": 9, "refMax": 50, "estado": "normal"},
+      "mar2026": {"valor": 27.2, "unidad": "pg/mL", "refMin": 9, "refMax": 50, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "0%",
+      "importancia": "alta",
+      "comentario": "Sin cambio a pesar de que la total subió. SHBG elevado está secuestrando la testosterona adicional."
+    },
+    {
+      "nombre": "DHEA-S",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 220.2, "unidad": "ug/dL", "refMin": 280, "refMax": 640, "estado": "bajo"},
+      "mar2026": {"valor": 180.2, "unidad": "ug/dL", "refMin": 280, "refMax": 640, "estado": "bajo"},
+      "tendencia": "empeoro",
+      "delta": "-18.2%",
+      "importancia": "critica",
+      "comentario": "Muy bajo para 26 años. Indica fatiga adrenal o estrés crónico. Precursor de testosterona y estrógenos. Empeoró significativamente."
+    },
+    {
+      "nombre": "SHBG",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 55.0, "unidad": "nM/L", "refMin": 10, "refMax": 50, "estado": "alto"},
+      "mar2026": {"valor": 69.6, "unidad": "nM/L", "refMin": 10, "refMax": 50, "estado": "alto"},
+      "tendencia": "empeoro",
+      "delta": "+26.5%",
+      "importancia": "critica",
+      "comentario": "Subió de 55 a 69.6. Secuestra testosterona libre, reduce biodisponibilidad. Posibles causas: bajo peso graso, tiroides activa, déficit calórico relativo."
+    },
+    {
+      "nombre": "Estradiol",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 29.74, "unidad": "pg/mL", "refMin": 7.63, "refMax": 42.6, "estado": "normal"},
+      "mar2026": {"valor": 37.95, "unidad": "pg/mL", "refMin": 7.63, "refMax": 42.6, "estado": "normal"},
+      "tendencia": "empeoro",
+      "delta": "+27.6%",
+      "importancia": "media",
+      "comentario": "Acercándose al límite superior. Subió junto con testosterona total. Monitorear aromatización."
+    },
+    {
+      "nombre": "FSH",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 5.12, "unidad": "mUI/mL", "refMin": 1.5, "refMax": 12.4, "estado": "normal"},
+      "mar2026": {"valor": 6.56, "unidad": "mUI/mL", "refMin": 1.5, "refMax": 12.4, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+28.1%",
+      "importancia": "baja",
+      "comentario": "Dentro de rango, subió junto con LH. Eje gonadal más activo."
+    },
+    {
+      "nombre": "LH",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 3.85, "unidad": "mUI/mL", "refMin": 1.7, "refMax": 8.6, "estado": "normal"},
+      "mar2026": {"valor": 5.65, "unidad": "mUI/mL", "refMin": 1.7, "refMax": 8.6, "estado": "normal"},
+      "tendencia": "mejoro",
+      "delta": "+46.8%",
+      "importancia": "media",
+      "comentario": "Mayor señal hipofisaria. Consistente con aumento de testosterona. Positivo."
+    },
+    {
+      "nombre": "Cortisol AM",
+      "categoria": "hormonas",
+      "dic2025": {"valor": 12.15, "unidad": "ug/dL", "refMin": 5, "refMax": 25, "estado": "normal"},
+      "mar2026": {"valor": 11.63, "unidad": "ug/dL", "refMin": 5, "refMax": 25, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-4.3%",
+      "importancia": "media",
+      "comentario": "Estable. Cortisol matinal algo bajo para un atleta (óptimo 12-18). Junto con DHEA-S bajo, sugiere fatiga adrenal."
+    },
+    {
+      "nombre": "TSH",
+      "categoria": "tiroides",
+      "dic2025": {"valor": 2.664, "unidad": "uUI/mL", "refMin": 0.27, "refMax": 4.2, "estado": "normal"},
+      "mar2026": {"valor": 1.784, "unidad": "uUI/mL", "refMin": 0.27, "refMax": 4.2, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-33.0%",
+      "importancia": "alta",
+      "comentario": "Excelente mejora. De subóptimo funcional (>2.5) a óptimo (<2). Tiroides funcionando mejor."
+    },
+    {
+      "nombre": "T3 Libre",
+      "categoria": "tiroides",
+      "dic2025": null,
+      "mar2026": {"valor": 3.34, "unidad": "pg/mL", "refMin": 2, "refMax": 4.4, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Nuevo marcador. Dentro de rango normal."
+    },
+    {
+      "nombre": "T4 Libre",
+      "categoria": "tiroides",
+      "dic2025": null,
+      "mar2026": {"valor": 0.77, "unidad": "ng/dL", "refMin": 0.61, "refMax": 1.12, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Nuevo marcador. Dentro de rango normal."
+    },
+    {
+      "nombre": "Insulina Basal",
+      "categoria": "metabolismo",
+      "dic2025": {"valor": 3.40, "unidad": "uUI/mL", "refMin": 1.9, "refMax": 23, "estado": "optimo"},
+      "mar2026": {"valor": 2.37, "unidad": "uUI/mL", "refMin": 1.9, "refMax": 23, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-30.3%",
+      "importancia": "media",
+      "comentario": "Excelente sensibilidad insulínica. Bajó aún más."
+    },
+    {
+      "nombre": "HbA1c",
+      "categoria": "metabolismo",
+      "dic2025": {"valor": 5.1, "unidad": "%", "refMin": 0, "refMax": 5.7, "estado": "normal"},
+      "mar2026": {"valor": 4.9, "unidad": "%", "refMin": 0, "refMax": 5.7, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-0.2 puntos",
+      "importancia": "media",
+      "comentario": "Mejoró. Control glucémico excelente."
+    },
+    {
+      "nombre": "Glicemia Basal",
+      "categoria": "metabolismo",
+      "dic2025": {"valor": 73.5, "unidad": "mg/dL", "refMin": 75, "refMax": 100, "estado": "bajo"},
+      "mar2026": {"valor": 82, "unidad": "mg/dL", "refMin": 75, "refMax": 100, "estado": "normal"},
+      "tendencia": "mejoro",
+      "delta": "+11.6%",
+      "importancia": "media",
+      "comentario": "Se normalizó. Antes estaba levemente bajo el rango."
+    },
+    {
+      "nombre": "HOMA-IR",
+      "categoria": "metabolismo",
+      "dic2025": {"valor": 0.62, "unidad": "", "refMin": 0, "refMax": 2.5, "estado": "optimo"},
+      "mar2026": {"valor": 0.48, "unidad": "", "refMin": 0, "refMax": 2.5, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-22.6%",
+      "importancia": "baja",
+      "comentario": "Resistencia a la insulina prácticamente nula. Excelente."
+    },
+    {
+      "nombre": "Colesterol Total",
+      "categoria": "lipidos",
+      "dic2025": {"valor": 176, "unidad": "mg/dL", "refMin": 0, "refMax": 200, "estado": "normal"},
+      "mar2026": {"valor": 183, "unidad": "mg/dL", "refMin": 0, "refMax": 200, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+4.0%",
+      "importancia": "baja",
+      "comentario": "Dentro de rango. Leve aumento sin relevancia clínica."
+    },
+    {
+      "nombre": "HDL",
+      "categoria": "lipidos",
+      "dic2025": {"valor": 40.5, "unidad": "mg/dL", "refMin": 60, "refMax": 999, "estado": "bajo"},
+      "mar2026": {"valor": 41.8, "unidad": "mg/dL", "refMin": 60, "refMax": 999, "estado": "bajo"},
+      "tendencia": "estable",
+      "delta": "+3.2%",
+      "importancia": "critica",
+      "comentario": "Sigue muy bajo (<60). Factor de riesgo cardiovascular independiente. Mínima mejora insuficiente. Requiere intervención activa."
+    },
+    {
+      "nombre": "Triglicéridos",
+      "categoria": "lipidos",
+      "dic2025": {"valor": 78, "unidad": "mg/dL", "refMin": 0, "refMax": 150, "estado": "optimo"},
+      "mar2026": {"valor": 72, "unidad": "mg/dL", "refMin": 0, "refMax": 150, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-7.7%",
+      "importancia": "baja",
+      "comentario": "Excelente. Ratio TG/HDL = 1.72 (bueno)."
+    },
+    {
+      "nombre": "LDL",
+      "categoria": "lipidos",
+      "dic2025": {"valor": 120, "unidad": "mg/dL", "refMin": 0, "refMax": 130, "estado": "normal"},
+      "mar2026": {"valor": 127, "unidad": "mg/dL", "refMin": 0, "refMax": 130, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+5.8%",
+      "importancia": "media",
+      "comentario": "Subió y se acerca al límite. Monitorear."
+    },
+    {
+      "nombre": "VLDL",
+      "categoria": "lipidos",
+      "dic2025": {"valor": 15.6, "unidad": "mg/dL", "refMin": 0, "refMax": 30, "estado": "normal"},
+      "mar2026": {"valor": 14.4, "unidad": "mg/dL", "refMin": 0, "refMax": 30, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-7.7%",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "Ferritina",
+      "categoria": "hierro",
+      "dic2025": {"valor": 158.5, "unidad": "ng/mL", "refMin": 20, "refMax": 250, "estado": "normal"},
+      "mar2026": {"valor": 104.9, "unidad": "ng/mL", "refMin": 20, "refMax": 250, "estado": "normal"},
+      "tendencia": "empeoro",
+      "delta": "-33.8%",
+      "importancia": "alta",
+      "comentario": "Bajó un tercio en 3 meses. Demanda de hierro por entrenamiento intenso. Aún en rango pero tendencia preocupante."
+    },
+    {
+      "nombre": "Ferremia",
+      "categoria": "hierro",
+      "dic2025": {"valor": 149, "unidad": "ug/dL", "refMin": 70, "refMax": 180, "estado": "normal"},
+      "mar2026": {"valor": 75, "unidad": "ug/dL", "refMin": 70, "refMax": 180, "estado": "bajo"},
+      "tendencia": "empeoro",
+      "delta": "-49.7%",
+      "importancia": "critica",
+      "comentario": "Caída del 50%. Al piso del rango. Hierro sérico en mínimo. Riesgo de anemia deportiva si continúa la tendencia."
+    },
+    {
+      "nombre": "Transferrina",
+      "categoria": "hierro",
+      "dic2025": {"valor": 197, "unidad": "mg/dL", "refMin": 200, "refMax": 360, "estado": "bajo"},
+      "mar2026": {"valor": 201, "unidad": "mg/dL", "refMin": 200, "refMax": 360, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+2.0%",
+      "importancia": "baja",
+      "comentario": "Apenas entró al rango normal."
+    },
+    {
+      "nombre": "TIBC",
+      "categoria": "hierro",
+      "dic2025": null,
+      "mar2026": {"valor": 296, "unidad": "ug/dL", "refMin": 155, "refMax": 355, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Nuevo marcador. Normal."
+    },
+    {
+      "nombre": "% Saturación Transferrina",
+      "categoria": "hierro",
+      "dic2025": null,
+      "mar2026": {"valor": 25, "unidad": "%", "refMin": 20, "refMax": 50, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "media",
+      "comentario": "En el cuartil bajo del rango. Consistente con ferremia baja."
+    },
+    {
+      "nombre": "Hemoglobina",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 15.7, "unidad": "g/dL", "refMin": 13, "refMax": 16, "estado": "normal"},
+      "mar2026": {"valor": 15.3, "unidad": "g/dL", "refMin": 13, "refMax": 16, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-2.5%",
+      "importancia": "media",
+      "comentario": "Leve baja. Consistente con depleción de hierro. Aún buena."
+    },
+    {
+      "nombre": "Hematocrito",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 45.9, "unidad": "%", "refMin": 40, "refMax": 54, "estado": "normal"},
+      "mar2026": {"valor": 43.7, "unidad": "%", "refMin": 40, "refMax": 54, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-4.8%",
+      "importancia": "baja",
+      "comentario": "Bajó levemente. Dentro de rango."
+    },
+    {
+      "nombre": "Leucocitos",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 5.2, "unidad": "x10^3/uL", "refMin": 4, "refMax": 11, "estado": "normal"},
+      "mar2026": {"valor": 4.3, "unidad": "x10^3/uL", "refMin": 4, "refMax": 11, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-17.3%",
+      "importancia": "media",
+      "comentario": "Bajó. Leucocitos bajos pueden verse en atletas de endurance/estrés. Monitorear."
+    },
+    {
+      "nombre": "Linfocitos %",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 40, "unidad": "%", "refMin": 15, "refMax": 43, "estado": "normal"},
+      "mar2026": {"valor": 45, "unidad": "%", "refMin": 15, "refMax": 43, "estado": "alto"},
+      "tendencia": "empeoro",
+      "delta": "+12.5%",
+      "importancia": "media",
+      "comentario": "Fuera de rango. Linfocitosis relativa. Patrón típico de atleta (neutropenia relativa + linfocitosis). No patológico aislado."
+    },
+    {
+      "nombre": "Neutrófilos %",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 47, "unidad": "%", "refMin": 44, "refMax": 74, "estado": "normal"},
+      "mar2026": {"valor": 41, "unidad": "%", "refMin": 44, "refMax": 74, "estado": "bajo"},
+      "tendencia": "empeoro",
+      "delta": "-12.8%",
+      "importancia": "media",
+      "comentario": "Neutropenia relativa. Patrón de atleta. Absolutos en 2.0 (límite inferior). No alarma si asintomático."
+    },
+    {
+      "nombre": "Plaquetas",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 191, "unidad": "x10^3/uL", "refMin": 150, "refMax": 400, "estado": "normal"},
+      "mar2026": {"valor": 198, "unidad": "x10^3/uL", "refMin": 150, "refMax": 400, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+3.7%",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "VHS",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 2, "unidad": "mm/h", "refMin": 0, "refMax": 15, "estado": "optimo"},
+      "mar2026": {"valor": 2, "unidad": "mm/h", "refMin": 0, "refMax": 15, "estado": "optimo"},
+      "tendencia": "estable",
+      "delta": "0%",
+      "importancia": "baja",
+      "comentario": "Sin inflamación sistémica. Excelente."
+    },
+    {
+      "nombre": "Vitamina D",
+      "categoria": "otros",
+      "dic2025": {"valor": 33.96, "unidad": "ng/mL", "refMin": 40, "refMax": 60, "estado": "bajo"},
+      "mar2026": {"valor": 25.90, "unidad": "ng/mL", "refMin": 40, "refMax": 60, "estado": "bajo"},
+      "tendencia": "empeoro",
+      "delta": "-23.7%",
+      "importancia": "critica",
+      "comentario": "Bajó significativamente. Ya era subóptima y empeoró. Afecta inmunidad, fuerza muscular, absorción de calcio, testosterona y estado de ánimo. Requiere suplementación urgente."
+    },
+    {
+      "nombre": "Magnesio",
+      "categoria": "otros",
+      "dic2025": null,
+      "mar2026": {"valor": 1.9, "unidad": "mg/dL", "refMin": 1.8, "refMax": 2.6, "estado": "bajo"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "alta",
+      "comentario": "Nuevo marcador. En el piso del rango. Magnesio sérico subestima el déficit real (solo 1% del magnesio corporal está en sangre). Atletas de alta demanda necesitan >2.0. Afecta sueño, recuperación, calambres."
+    },
+    {
+      "nombre": "Albumina",
+      "categoria": "bioquimico",
+      "dic2025": {"valor": 4.9, "unidad": "g/dL", "refMin": 3.5, "refMax": 5.5, "estado": "normal"},
+      "mar2026": {"valor": 4.8, "unidad": "g/dL", "refMin": 3.5, "refMax": 5.5, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-2.0%",
+      "importancia": "baja",
+      "comentario": "Normal. Buen estado nutricional."
+    },
+    {
+      "nombre": "GOT/AST",
+      "categoria": "hepatico",
+      "dic2025": {"valor": 17.4, "unidad": "U/L", "refMin": 0, "refMax": 40, "estado": "normal"},
+      "mar2026": {"valor": 21.6, "unidad": "U/L", "refMin": 0, "refMax": 40, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "+24.1%",
+      "importancia": "baja",
+      "comentario": "Aumento leve. Normal para atleta (daño muscular micro). Sin relevancia."
+    },
+    {
+      "nombre": "GPT/ALT",
+      "categoria": "hepatico",
+      "dic2025": null,
+      "mar2026": {"valor": 17.3, "unidad": "U/L", "refMin": 0, "refMax": 41, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Nuevo. Normal. Hígado sano."
+    },
+    {
+      "nombre": "GGT",
+      "categoria": "hepatico",
+      "dic2025": null,
+      "mar2026": {"valor": 10, "unidad": "UI/L", "refMin": 0, "refMax": 60, "estado": "optimo"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Excelente. Sin estrés hepático."
+    },
+    {
+      "nombre": "Proteínas Totales",
+      "categoria": "bioquimico",
+      "dic2025": {"valor": 7.2, "unidad": "g/dL", "refMin": 6, "refMax": 8.3, "estado": "normal"},
+      "mar2026": {"valor": 6.9, "unidad": "g/dL", "refMin": 6, "refMax": 8.3, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "-4.2%",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "Calcio",
+      "categoria": "bioquimico",
+      "dic2025": {"valor": 9.4, "unidad": "mg/dL", "refMin": 8.5, "refMax": 10.5, "estado": "normal"},
+      "mar2026": {"valor": 9.4, "unidad": "mg/dL", "refMin": 8.5, "refMax": 10.5, "estado": "normal"},
+      "tendencia": "estable",
+      "delta": "0%",
+      "importancia": "baja",
+      "comentario": "Estable. Normal."
+    },
+    {
+      "nombre": "Creatinina",
+      "categoria": "bioquimico",
+      "dic2025": null,
+      "mar2026": {"valor": 1.13, "unidad": "mg/dL", "refMin": 0.84, "refMax": 1.25, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal. Función renal conservada."
+    },
+    {
+      "nombre": "Ácido Úrico",
+      "categoria": "bioquimico",
+      "dic2025": null,
+      "mar2026": {"valor": 5.5, "unidad": "mg/dL", "refMin": 3.4, "refMax": 7.0, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "LDH",
+      "categoria": "bioquimico",
+      "dic2025": null,
+      "mar2026": {"valor": 138, "unidad": "UI/L", "refMin": 140, "refMax": 271, "estado": "bajo"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Levemente bajo. Sin relevancia clínica significativa."
+    },
+    {
+      "nombre": "Bilirrubina Total",
+      "categoria": "hepatico",
+      "dic2025": null,
+      "mar2026": {"valor": 0.8, "unidad": "mg/dL", "refMin": 0, "refMax": 1.2, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "Fosfatasa Alcalina",
+      "categoria": "hepatico",
+      "dic2025": null,
+      "mar2026": {"valor": 53, "unidad": "U/L", "refMin": 40, "refMax": 129, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "INR",
+      "categoria": "hepatico",
+      "dic2025": null,
+      "mar2026": {"valor": 1.14, "unidad": "", "refMin": 0.8, "refMax": 1.2, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal. Coagulación adecuada."
+    },
+    {
+      "nombre": "Fósforo",
+      "categoria": "bioquimico",
+      "dic2025": null,
+      "mar2026": {"valor": 4.4, "unidad": "mg/dL", "refMin": 2.5, "refMax": 4.5, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "Eritrocitos",
+      "categoria": "hematologia",
+      "dic2025": null,
+      "mar2026": {"valor": 4.88, "unidad": "x10^6/uL", "refMin": 4.06, "refMax": 5.63, "estado": "normal"},
+      "tendencia": "nuevo",
+      "delta": "N/A",
+      "importancia": "baja",
+      "comentario": "Normal."
+    },
+    {
+      "nombre": "NLR",
+      "categoria": "hematologia",
+      "dic2025": {"valor": 1.17, "unidad": "", "refMin": 0, "refMax": 2, "estado": "optimo"},
+      "mar2026": {"valor": 1.05, "unidad": "", "refMin": 0, "refMax": 2, "estado": "optimo"},
+      "tendencia": "mejoro",
+      "delta": "-10.3%",
+      "importancia": "baja",
+      "comentario": "Excelente. Sin inflamación sistémica."
+    }
+  ],
+  "resumen": {
+    "mejoraron": [
+      "Testosterona Total (+10.9%)",
+      "TSH (de subóptimo a óptimo)",
+      "Glicemia Basal (se normalizó)",
+      "Insulina Basal (-30%)",
+      "HbA1c (de 5.1 a 4.9%)",
+      "HOMA-IR (de 0.62 a 0.48)",
+      "Triglicéridos (-7.7%)",
+      "LH (+46.8%, mayor señal gonadal)",
+      "NLR (de 1.17 a 1.05)"
+    ],
+    "empeoraron": [
+      "DHEA-S (de 220 a 180, cada vez más bajo)",
+      "SHBG (de 55 a 69.6, secuestra testosterona)",
+      "Vitamina D (de 34 a 26, bajó 24%)",
+      "Ferremia (de 149 a 75, bajó 50%)",
+      "Ferritina (de 158 a 105, bajó 34%)",
+      "Estradiol (de 30 a 38, acercándose al límite)",
+      "Linfocitos % (fuera de rango alto)",
+      "Neutrófilos % (fuera de rango bajo)"
+    ],
+    "criticos": [
+      "DHEA-S en caída libre (180, ref 280-640) - fatiga adrenal",
+      "SHBG muy elevado (69.6, ref 10-50) - anula el beneficio de más testosterona",
+      "Vitamina D en declive (25.9, óptimo 40-60) - afecta todo",
+      "Ferremia al piso (75, era 149) - riesgo anemia deportiva",
+      "HDL crónicamente bajo (41.8, ref >60) - riesgo cardiovascular"
+    ],
+    "nuevos": [
+      "T3 Libre (3.34 - normal)",
+      "T4 Libre (0.77 - normal)",
+      "Magnesio (1.9 - bajo funcional)",
+      "Perfil hepático completo (todo normal)",
+      "Función renal (normal)",
+      "TIBC y % Sat Transferrina (normales)"
+    ]
+  },
+  "planAccion": [
+    {
+      "prioridad": 1,
+      "area": "Vitamina D",
+      "problema": "25.9 ng/mL, bajó 24%, lejos del óptimo 40-60",
+      "accion": "Suplementar 4000-5000 UI/día de Vitamina D3 con K2 (MK-7). Tomar con comida grasa. Re-evaluar en 8 semanas.",
+      "timeline": "inmediato"
+    },
+    {
+      "prioridad": 2,
+      "area": "Hierro",
+      "problema": "Ferremia al piso (75), ferritina bajó 34%. Tendencia a depleción.",
+      "accion": "Suplementar hierro bislicinato 25-30mg/día en ayunas con vitamina C. Incorporar carnes rojas 3x/semana, hígado 1x/semana. No tomar con café/té/lácteos. Re-evaluar en 8 semanas.",
+      "timeline": "inmediato"
+    },
+    {
+      "prioridad": 3,
+      "area": "DHEA-S / Adrenales",
+      "problema": "180 ug/dL (ref 280-640), en caída. A 26 años debería estar en 350+.",
+      "accion": "Evaluar con endocrinólogo. Considerar DHEA 25mg/día (bajo supervisión médica). Optimizar sueño (7-8h), reducir estrés, ashwagandha 600mg/día (KSM-66). Evaluar carga de entrenamiento vs recuperación.",
+      "timeline": "1mes"
+    },
+    {
+      "prioridad": 4,
+      "area": "SHBG / Testosterona Libre",
+      "problema": "SHBG 69.6 (ref 10-50). Testosterona libre no mejoró a pesar de más total.",
+      "accion": "Evaluar con endocrinólogo. Estrategias: asegurar ingesta calórica suficiente (evitar déficit crónico), incluir carbohidratos suficientes (~3g/kg), zinc 25mg/día, boro 10mg/día (puede bajar SHBG). Magnesio ayuda también.",
+      "timeline": "1mes"
+    },
+    {
+      "prioridad": 5,
+      "area": "HDL Colesterol",
+      "problema": "41.8 mg/dL (ref >60). Crónicamente bajo.",
+      "accion": "Ejercicio aeróbico 2-3x/semana (30 min zona 2 - caminata rápida, bici). Aceite de oliva extra virgen diario. Omega-3 (2g EPA+DHA/día). Palta, nueces, pescado graso. Reducir carbohidratos refinados.",
+      "timeline": "3meses"
+    },
+    {
+      "prioridad": 6,
+      "area": "Magnesio",
+      "problema": "1.9 mg/dL, en el piso del rango. Atleta de alta demanda.",
+      "accion": "Suplementar magnesio bislicinato 400mg antes de dormir. Mejora sueño, recuperación muscular y puede ayudar con SHBG.",
+      "timeline": "inmediato"
+    },
+    {
+      "prioridad": 7,
+      "area": "Seguimiento médico",
+      "problema": "Múltiples marcadores hormonales fuera de rango requieren supervisión profesional.",
+      "accion": "Agendar hora con endocrinólogo deportivo. Llevar ambos exámenes. Discutir DHEA-S, SHBG, y si amerita evaluación de eje adrenal (test de ACTH). Próximo control completo en junio 2026.",
+      "timeline": "1mes"
+    }
+  ]
+}

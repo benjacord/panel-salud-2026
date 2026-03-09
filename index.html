@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de Salud - Benjamín Cordero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--card:#111;--card2:#1a1a1a;--border:#222;--text:#e5e5e5;--muted:#888;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6;--accent:#a78bfa}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:760px;margin:0 auto;padding:24px 20px 80px}
+h1{font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px}
+h2{font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;margin:48px 0 16px;display:flex;align-items:center;gap:10px}
+h3{font-size:1.1rem;font-weight:600;margin:28px 0 12px;color:#ccc}
+.subtitle{color:var(--muted);font-size:.95rem;margin-bottom:40px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:16px 0}
+.card-accent{border-left:3px solid var(--accent)}
+.card-red{border-left:3px solid var(--red)}
+.card-green{border-left:3px solid var(--green)}
+.card-yellow{border-left:3px solid var(--yellow)}
+p{margin-bottom:14px;color:#ccc}
+p:last-child{margin-bottom:0}
+strong{color:var(--text);font-weight:600}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:600;margin-right:6px}
+.tag-good{background:#22c55e20;color:var(--green)}
+.tag-bad{background:#ef444420;color:var(--red)}
+.tag-warn{background:#f59e0b20;color:var(--yellow)}
+.tag-info{background:#3b82f620;color:var(--blue)}
+ul{list-style:none;padding:0}
+ul li{padding:8px 0;padding-left:20px;position:relative;color:#ccc}
+ul li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+ul.problems li::before{background:var(--red)}
+ul.warn li::before{background:var(--yellow)}
+.connection-map{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:24px;font-family:'Inter',monospace;font-size:.85rem;line-height:2;color:var(--muted);overflow-x:auto}
+.connection-map .arrow{color:var(--yellow)}
+.connection-map .highlight{color:var(--text)}
+.priority-label{display:inline-block;padding:4px 12px;border-radius:6px;font-size:.8rem;font-weight:700;margin-bottom:12px}
+.priority-urgent{background:#ef444430;color:var(--red)}
+.priority-important{background:#f59e0b30;color:var(--yellow)}
+.priority-follow{background:#22c55e30;color:var(--green)}
+.action-item{margin-bottom:20px}
+.action-item h4{font-size:1rem;font-weight:600;margin-bottom:6px}
+.action-item p{font-size:.9rem}
+details{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-top:32px}
+summary{padding:20px 24px;cursor:pointer;font-weight:600;font-size:1rem;list-style:none;display:flex;align-items:center;gap:8px}
+summary::before{content:'▸';transition:transform .2s}
+details[open] summary::before{transform:rotate(90deg)}
+details .inner{padding:0 24px 24px}
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:12px}
+th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:500;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 10px;border-bottom:1px solid #1a1a1a;color:#bbb}
+td:first-child{color:var(--text);font-weight:500}
+.up{color:var(--green)}
+.down{color:var(--red)}
+.stable{color:var(--muted)}
+.divider{height:1px;background:var(--border);margin:40px 0}
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0}
+.profile-stat{background:var(--card2);border-radius:8px;padding:14px;text-align:center}
+.profile-stat .val{font-size:1.3rem;font-weight:700;color:var(--text)}
+.profile-stat .label{font-size:.75rem;color:var(--muted);margin-top:4px}
+@media(max-width:600px){
+  .container{padding:16px 14px 60px}
+  h1{font-size:1.6rem}
+  h2{font-size:1.2rem}
+  .card{padding:18px}
+  .profile-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div style="padding:32px 0 8px">
+  <h1>Tu Panel de Salud</h1>
+  <p class="subtitle">Benjamín Cordero Borda · Diciembre 2025 → Marzo 2026</p>
+</div>
+
+<!-- PERFIL -->
+<h2>👤 Quién eres</h2>
+<div class="card card-accent">
+  <p>26 años. Escalador boulder y deportiva con 6 años de experiencia, nivel élite (fuerza de dedos al 162% de tu peso corporal). Fundador de Imperio Digital, automatización e IA. Entrenas 5 días a la semana, estás empezando cursos de escalada trad, y manejas una empresa con alto estrés cognitivo.</p>
+  <p>En los últimos 3 meses pasaron cosas importantes: dejaste el Samexid (metilfenidato) que tomabas regularmente, hiciste un viaje de escalada a Cochamó de 8 días desconectado, e intensificaste el entrenamiento. Todo eso impacta tus números.</p>
+</div>
+
+<div class="profile-grid">
+  <div class="profile-stat"><div class="val">74 kg</div><div class="label">Peso</div></div>
+  <div class="profile-stat"><div class="val">12.4%</div><div class="label">Grasa corporal</div></div>
+  <div class="profile-stat"><div class="val">36.9 kg</div><div class="label">Músculo esquelético</div></div>
+  <div class="profile-stat"><div class="val">24 años</div><div class="label">Edad fisiológica</div></div>
+</div>
+
+<!-- PANORAMA -->
+<h2>🔍 El panorama general</h2>
+<div class="card">
+  <p>Tu cuerpo está en buena forma general. Eres un atleta real con métricas metabólicas envidiables. Pero hay un problema central que está limitando tu energía y recuperación:</p>
+  <p><strong>Tienes buena testosterona total, pero no puedes usarla bien.</strong> El SHBG (la proteína que "secuestra" tus hormonas) está casi al doble del límite normal y bloquea tu testosterona libre. Mientras tanto, el DHEA-S - el combustible que alimenta tu sistema hormonal - sigue cayendo y está muy por debajo del rango para tu edad.</p>
+  <p>A eso le sumas una caída fuerte en hierro, vitamina D bajando, y un sistema inmune que muestra señales de carga alta. Son problemas conectados entre sí, y todos apuntan a lo mismo: un cuerpo trabajando al límite.</p>
+</div>
+
+<!-- LO QUE ESTÁ BIEN -->
+<h2>🟢 Lo que está bien</h2>
+<div class="card card-green">
+  <ul>
+    <li><strong>Testosterona total subió de 593 a 658 ng/dL (+11%).</strong> Tu cuerpo está produciendo más. Buena señal, el eje funciona.</li>
+    <li><strong>Metabolismo de azúcar nivel atleta.</strong> HbA1c 4.9%, insulina bajísima (2.37), glicemia perfecta. Tu cuerpo maneja el azúcar como reloj suizo.</li>
+    <li><strong>Cero inflamación.</strong> VHS en 2 mm/h (el mínimo posible). Tu cuerpo no está en modo alarma ni pelea interna.</li>
+    <li><strong>Función renal perfecta.</strong> Creatinina 1.13 (normal), albúmina 4.8 (excelente). Los riñones no acusan recibo del entrenamiento pesado.</li>
+    <li><strong>Tiroides mejoró.</strong> TSH bajó de 2.66 a 1.78 (más eficiente), T4 y T3 libres en rango. Tu tiroides está trabajando mejor que en diciembre.</li>
+    <li><strong>Triglicéridos bajaron</strong> de 78 a 72. Ya estaban bien, ahora mejor.</li>
+    <li><strong>Cortisol AM estable</strong> en 11.6. No hay señal de estrés adrenal extremo a nivel hormonal.</li>
+    <li><strong>FSH y LH subieron dentro de rango</strong> (5→6.5 y 3.8→5.6). Tu cerebro le está pidiendo más producción hormonal a los testículos. Están respondiendo.</li>
+  </ul>
+</div>
+
+<!-- LOS PROBLEMAS -->
+<h2>🔴 Los problemas</h2>
+
+<div class="card card-red">
+  <h3>El problema central: DHEA-S, SHBG y tu testosterona</h3>
+  <p>Acá es donde se juega todo, Ben. Presta atención porque estos tres están conectados y son la clave de lo que sientes.</p>
+  <ul class="problems">
+    <li><strong>SHBG en 69.6 nM/L (rango: 10-50).</strong> Subió de 55 a casi 70 en 3 meses. El SHBG es una proteína que se pega a la testosterona y la hace inutilizable. Es como tener plata en el banco pero congelada: está ahí, pero no la puedes gastar. Por eso tu testosterona total subió a 658 pero la libre se quedó clavada en 27.2. La mejora no llegó a donde importa.</li>
+    <li><strong>DHEA-S en 180.2 ug/dL (rango: 280-640).</strong> Bajó de 220 a 180. Estás MUY por debajo del mínimo. El DHEA-S es el precursor - la materia prima - que tu cuerpo usa para fabricar testosterona, estrógeno y otras hormonas. Que esté tan bajo a los 26 años es una señal de que tu glándula adrenal está produciendo menos de lo que debería. Puede ser por estrés crónico, entrenamiento intenso, o el cambio de medicación.</li>
+    <li><strong>Estradiol subió de 29.7 a 38 pg/mL.</strong> Se acerca al límite superior (42.6). Con SHBG alto, pasa algo paradójico: el SHBG tiene más afinidad por la testosterona que por el estradiol, así que proporcionalmente queda más estradiol "libre" circulando que testosterona "libre". Esto puede empeorar la relación T/E2 y afectar cómo te sientes.</li>
+  </ul>
+  <p style="margin-top:16px"><strong>¿Por qué sube el SHBG?</strong> Probablemente es la paradoja del atleta lean: tu insulina es bajísima (2.37), tu grasa corporal es baja (12.4%), y eso le dice al hígado que produzca más SHBG. Es, irónicamente, el "precio" de estar metabólicamente impecable. También puede contribuir la tiroides optimizada (TSH más bajo = más SHBG).</p>
+</div>
+
+<div class="card card-red">
+  <h3>Hierro en caída libre</h3>
+  <ul class="problems">
+    <li><strong>Ferremia cayó de 149 a 75 ug/dL en 3 meses.</strong> Se redujo a la mitad. Está justo en el límite inferior del rango (70-180). Para un escalador que entrena 5 días a la semana, esto es un problema real.</li>
+    <li><strong>Ferritina bajó de 158 a 105 ng/mL.</strong> Sigue en rango, pero la tendencia es clara: tus reservas se están consumiendo.</li>
+    <li><strong>Esto afecta directamente tu rendimiento:</strong> el hierro transporta oxígeno a los músculos, participa en la recuperación, y su déficit causa fatiga, menor tolerancia al esfuerzo, y recuperación más lenta. Si sientes que te cuesta más recuperarte entre sesiones, probablemente es esto.</li>
+    <li><strong>Causa probable:</strong> alta demanda por entrenamiento intenso (incluyendo Cochamó) combinada con posible ingesta baja de hierro hemo (carne roja, vísceras).</li>
+  </ul>
+</div>
+
+<div class="card card-yellow" style="border-left-color:var(--yellow)">
+  <h3>Vitamina D en caída</h3>
+  <ul class="warn">
+    <li><strong>Bajó de 34 a 26 ng/mL.</strong> El rango "normal" del laboratorio empieza en 20, pero para un deportista el óptimo está entre 40-60 ng/mL. Estás lejos.</li>
+    <li><strong>La vitamina D no es solo huesos.</strong> Participa en la síntesis de testosterona, recuperación muscular, sistema inmune, y hasta en el ánimo. Su caída está conectada con varios de tus otros problemas.</li>
+    <li><strong>Causa:</strong> transición verano-otoño, menos exposición solar directa, protector solar, más horas adentro trabajando.</li>
+  </ul>
+</div>
+
+<div class="card card-yellow" style="border-left-color:var(--yellow)">
+  <h3>HDL crónicamente bajo</h3>
+  <ul class="warn">
+    <li><strong>41.8 mg/dL (objetivo: >60).</strong> No mejoró en 3 meses. Para un atleta lean con triglicéridos perfectos (72), es raro tener el HDL tan bajo.</li>
+    <li><strong>¿Por qué importa para tus hormonas?</strong> El colesterol es literalmente la materia prima de todas las hormonas esteroideas (testosterona, DHEA, cortisol). Si tu HDL está bajo, hay menos "colesterol bueno" disponible como precursor hormonal.</li>
+  </ul>
+</div>
+
+<div class="card card-yellow" style="border-left-color:var(--yellow)">
+  <h3>Fórmula leucocitaria invertida</h3>
+  <ul class="warn">
+    <li><strong>Linfocitos 45% (rango: 15-43%) y Neutrófilos 41% (rango: 44-74%).</strong> La proporción está invertida respecto a lo normal.</li>
+    <li><strong>No es alarmante</strong> en valores absolutos (linfocitos absolutos: ~1.9, normal). Pero este patrón se ve en estrés crónico o sobreentrenamiento: el sistema inmune está redistribuyendo sus recursos porque siente carga alta sostenida.</li>
+    <li>Leucocitos totales también bajaron de 5.2 a 4.3. No es grave, pero es otra señal de que el cuerpo está operando apretado.</li>
+  </ul>
+</div>
+
+<!-- RELACIONES -->
+<h2>🔗 Cómo se conecta todo</h2>
+<p style="margin-bottom:16px;color:var(--muted)">Estos no son problemas aislados. Son síntomas de un mismo sistema bajo presión.</p>
+
+<div class="connection-map">
+  <span class="highlight">DHEA-S bajo</span> <span class="arrow">→</span> menos precursores hormonales <span class="arrow">→</span> sistema hormonal con menos combustible<br>
+  <span class="highlight">SHBG alto</span> <span class="arrow">→</span> secuestra testosterona y estradiol <span class="arrow">→</span> T libre no sube aunque T total suba<br>
+  <span class="highlight">Ferremia -50%</span> <span class="arrow">→</span> menos transporte de oxígeno <span class="arrow">→</span> más fatiga <span class="arrow">→</span> peor recuperación<br>
+  <span class="highlight">Vitamina D baja</span> <span class="arrow">→</span> menos síntesis de testosterona <span class="arrow">→</span> contribuye a más SHBG<br>
+  <span class="highlight">HDL bajo</span> <span class="arrow">→</span> menos colesterol disponible <span class="arrow">→</span> menos materia prima para hormonas<br>
+  <span class="highlight">Leucocitos invertidos</span> <span class="arrow">→</span> sistema inmune redistribuido <span class="arrow">→</span> señal de carga crónica<br><br>
+  <span style="color:var(--accent)">Resultado:</span> atleta de alto rendimiento + fundador de empresa + cambio de medicación = cuerpo trabajando al límite
+</div>
+
+<!-- OBJETIVO -->
+<h2>🎯 Tu objetivo: más energía y recuperación</h2>
+<div class="card card-accent">
+  <p>Quieres más energía y mejor recuperación. El camino <strong>no</strong> es "subir la testosterona total" - ya está bien en 658. El problema no es producción, es utilización.</p>
+  <p>El camino real es: <strong>bajar el SHBG</strong> para que la testosterona que ya tienes pueda actuar, <strong>recuperar el hierro</strong> antes de que afecte tu rendimiento en roca, <strong>subir la vitamina D</strong> al rango óptimo deportivo, y <strong>darle al cuerpo los precursores</strong> (DHEA-S, colesterol HDL) que necesita para fabricar hormonas.</p>
+  <p>No es un problema grave. Es un sistema que necesita ajustes específicos.</p>
+</div>
+
+<!-- PLAN DE ACCIÓN -->
+<h2>📋 Plan de acción</h2>
+
+<div class="card card-red">
+  <span class="priority-label priority-urgent">🔴 URGENTE - esta semana</span>
+
+  <div class="action-item">
+    <h4>1. Vitamina D3 + K2</h4>
+    <p>5,000 UI de vitamina D3 al día, tomada con una comida que tenga grasa (almuerzo o cena). Agregar vitamina K2 MK-7 (100-200 mcg) para que el calcio se dirija a los huesos y no a las arterias. <strong>Objetivo: llegar a 50-60 ng/mL en 3 meses.</strong> La vitamina D afecta directamente la síntesis de testosterona, la recuperación muscular y la inmunidad. Es lo más fácil de corregir.</p>
+  </div>
+
+  <div class="action-item">
+    <h4>2. Hierro (hablar con médico)</h4>
+    <p>Bislicinato de hierro 25-30mg/día con vitamina C para mejorar absorción. Tomarlo lejos del calcio, café y té. <strong>No usar hierro sulfato</strong> (causa estreñimiento). En alimentación: carne roja al menos 3 veces por semana, legumbres, evitar café o té inmediatamente después de comer. <strong>El hierro bajo es probablemente lo que más está limitando tu rendimiento ahora mismo.</strong></p>
+  </div>
+
+  <div class="action-item">
+    <h4>3. Magnesio bislicinato</h4>
+    <p>400mg antes de dormir. Ayuda marginalmente a reducir SHBG, mejora la calidad del sueño, favorece la recuperación muscular, y regula el cortisol nocturno. Tu nivel actual (1.9) está en el límite bajo del rango.</p>
+  </div>
+</div>
+
+<div class="card card-yellow" style="border-left-color:var(--yellow)">
+  <span class="priority-label priority-important">🟡 IMPORTANTE - 1 mes</span>
+
+  <div class="action-item">
+    <h4>4. Endocrinólogo deportivo</h4>
+    <p>El patrón DHEA-S bajo + SHBG alto + Estradiol subiendo necesita evaluación profesional. Un endocrinólogo deportivo puede determinar si hay una causa tratable. Podría ser algo tan simple como suplemento de DHEA (disponible sin receta en algunos países) o ajuste de dieta. <strong>No te automediques con DHEA sin supervisión.</strong></p>
+  </div>
+
+  <div class="action-item">
+    <h4>5. Subir HDL con omega-3 y grasas buenas</h4>
+    <p>Omega-3 de alta calidad: 2-3g de EPA+DHA al día. Más aguacate, aceite de oliva, huevos enteros, frutos secos. <strong>Objetivo: HDL >50 en 3 meses.</strong> El colesterol HDL es materia prima para tus hormonas esteroideas.</p>
+  </div>
+
+  <div class="action-item">
+    <h4>6. Revisar calorías y proteína</h4>
+    <p>Con ferremia baja y SHBG alto, asegúrate de <strong>no estar en déficit calórico crónico</strong>. El SHBG sube cuando el cuerpo percibe restricción energética. No necesitas engordar, pero sí asegurarte de que comes suficiente para sostener 5 días de entrenamiento semanal.</p>
+  </div>
+</div>
+
+<div class="card card-green">
+  <span class="priority-label priority-follow">🟢 SEGUIMIENTO - 3 meses</span>
+
+  <div class="action-item">
+    <h4>7. Repetir panel en junio 2026</h4>
+    <p>Marcadores clave a monitorear: <strong>DHEA-S, SHBG, Testosterona libre, Ferremia, Ferritina, Vitamina D, HDL.</strong> Con esos vas a saber si las intervenciones funcionaron.</p>
+  </div>
+
+  <div class="action-item">
+    <h4>8. Si SHBG no baja</h4>
+    <p>Si en 3 meses con suplementación y ajustes el SHBG sigue sobre 50, considerar evaluación hepática. El hígado produce SHBG, y aunque tus valores hepáticos están bien (albúmina excelente), vale la pena descartarlo si no responde.</p>
+  </div>
+</div>
+
+<!-- DATOS COMPLETOS -->
+<details>
+  <summary>📊 Datos completos (referencia)</summary>
+  <div class="inner">
+
+    <h3>Hormonas</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Testosterona Total</td><td>593.95 ng/dL</td><td>658.46 ng/dL</td><td>280-800</td><td class="up">↑</td></tr>
+      <tr><td>Testosterona Libre</td><td>27.2 pg/mL</td><td>27.2 pg/mL</td><td>9-50</td><td class="stable">=</td></tr>
+      <tr><td>DHEA-S</td><td>220.2 ug/dL</td><td>180.2 ug/dL</td><td>280-640</td><td class="down">↓ ⚠️</td></tr>
+      <tr><td>SHBG</td><td>55.0 nM/L</td><td>69.6 nM/L</td><td>10-50</td><td class="down">↑ ⚠️</td></tr>
+      <tr><td>Estradiol</td><td>29.74 pg/mL</td><td>37.95 pg/mL</td><td>7.63-42.6</td><td class="down">↑</td></tr>
+      <tr><td>FSH</td><td>5.12 mUI/mL</td><td>6.56 mUI/mL</td><td>1.5-12.4</td><td class="stable">↑</td></tr>
+      <tr><td>LH</td><td>3.85 mUI/mL</td><td>5.65 mUI/mL</td><td>1.7-8.6</td><td class="stable">↑</td></tr>
+      <tr><td>Cortisol AM</td><td>12.15 ug/dL</td><td>11.63 ug/dL</td><td>5-25</td><td class="stable">=</td></tr>
+    </table>
+
+    <h3>Tiroides</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>TSH</td><td>2.664 uUI/mL</td><td>1.784 uUI/mL</td><td>0.27-4.2</td><td class="up">↑</td></tr>
+      <tr><td>T4 Libre</td><td>—</td><td>0.77 ng/dL</td><td>0.61-1.12</td><td class="stable">nuevo</td></tr>
+      <tr><td>T3 Libre</td><td>—</td><td>3.34 pg/mL</td><td>2-4.4</td><td class="stable">nuevo</td></tr>
+    </table>
+
+    <h3>Metabolismo</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Insulina Basal</td><td>3.40 uUI/mL</td><td>2.37 uUI/mL</td><td>2.6-24.9</td><td class="up">↑</td></tr>
+      <tr><td>HbA1c</td><td>5.1%</td><td>4.9%</td><td>4.0-5.6</td><td class="up">↑</td></tr>
+      <tr><td>Glicemia</td><td>73.5 mg/dL</td><td>82 mg/dL</td><td>70-100</td><td class="up">↑</td></tr>
+    </table>
+
+    <h3>Hierro</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Ferritina</td><td>158.5 ng/mL</td><td>104.9 ng/mL</td><td>20-250</td><td class="down">↓</td></tr>
+      <tr><td>Ferremia</td><td>149 ug/dL</td><td>75 ug/dL</td><td>70-180</td><td class="down">↓ ⚠️</td></tr>
+      <tr><td>% Sat Transferrina</td><td>—</td><td>25%</td><td>20-50</td><td class="stable">nuevo</td></tr>
+    </table>
+
+    <h3>Lípidos</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Colesterol Total</td><td>176 mg/dL</td><td>183 mg/dL</td><td>&lt;200</td><td class="stable">=</td></tr>
+      <tr><td>HDL</td><td>40.5 mg/dL</td><td>41.8 mg/dL</td><td>&gt;60</td><td class="down">⚠️</td></tr>
+      <tr><td>Triglicéridos</td><td>78 mg/dL</td><td>72 mg/dL</td><td>&lt;150</td><td class="up">↑</td></tr>
+      <tr><td>LDL</td><td>120 mg/dL</td><td>127 mg/dL</td><td>&lt;130</td><td class="stable">=</td></tr>
+    </table>
+
+    <h3>Hematología</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Hemoglobina</td><td>15.7 g/dL</td><td>15.3 g/dL</td><td>13.5-17.5</td><td class="stable">↓</td></tr>
+      <tr><td>Leucocitos</td><td>5.2 x10³/uL</td><td>4.3 x10³/uL</td><td>4.0-11.0</td><td class="down">↓</td></tr>
+      <tr><td>Linfocitos %</td><td>40%</td><td>45%</td><td>15-43</td><td class="down">⚠️</td></tr>
+      <tr><td>Neutrófilos %</td><td>47%</td><td>41%</td><td>44-74</td><td class="down">⚠️</td></tr>
+      <tr><td>VHS</td><td>2 mm/h</td><td>2 mm/h</td><td>0-15</td><td class="up">✓</td></tr>
+    </table>
+
+    <h3>Otros</h3>
+    <table>
+      <tr><th>Marcador</th><th>Dic 2025</th><th>Mar 2026</th><th>Rango</th><th></th></tr>
+      <tr><td>Vitamina D</td><td>33.96 ng/mL</td><td>25.90 ng/mL</td><td>20-100</td><td class="down">↓ ⚠️</td></tr>
+      <tr><td>Magnesio</td><td>—</td><td>1.9 mg/dL</td><td>1.8-2.6</td><td class="stable">nuevo</td></tr>
+      <tr><td>Creatinina</td><td>—</td><td>1.13 mg/dL</td><td>0.84-1.25</td><td class="stable">nuevo</td></tr>
+      <tr><td>Albúmina</td><td>4.9 g/dL</td><td>4.8 g/dL</td><td>3.5-5.2</td><td class="up">✓</td></tr>
+    </table>
+  </div>
+</details>
+
+<div style="text-align:center;padding:40px 0 0;color:var(--muted);font-size:.8rem">
+  Informe generado marzo 2026 · Datos de laboratorio reales · No reemplaza consulta médica
+</div>
+
+</div>
+</body>
+</html>
